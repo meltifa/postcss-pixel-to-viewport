@@ -1,6 +1,6 @@
 # postcss-pixel-to-vw
 
-A plugin for [PostCSS](https://github.com/ai/postcss) that generates vw units from pixel units.
+A plugin for [PostCSS](https://github.com/postcss/postcss) that generates vw units from pixel units.
 
 ## Usage
 

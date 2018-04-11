@@ -15,13 +15,12 @@ const defaults = {
   mediaQuery: false
 };
 
-module.exports = postcss.plugin('postcss-pixel-to-viewport', function (options) {
+module.exports = postcss.plugin('postcss-pixel-to-vw', function (options) {
   const opts = Object.assign({}, defaults, options);
   const pxReplace = createPxReplace(opts.viewportWidth, opts.minPixelValue);
 
   return function (css) {
     css.walkDecls(function (decl, i) {
-      // This should be the fastest test and will remove most declarations
       const next = decl.next();
       const commentText = next && next.type == 'comment' && next.text;
       if (decl.value.indexOf('px') === -1 || commentText === 'px') {

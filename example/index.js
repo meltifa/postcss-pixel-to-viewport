@@ -5,7 +5,7 @@ var postcss = require('postcss');
 var px2vw = require('..');
 var css = fs.readFileSync('main.css', 'utf8');
 var options = {
-    propertyBlackList: ['font-size']
+  propertyBlackList: ['font-size']
 };
 var processedCss = postcss(px2vw(options)).process(css).css;
 

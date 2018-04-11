@@ -1,6 +1,6 @@
 {
-  "name": "postcss-pixel-to-viewport",
-  "description": "A CSS post-processor that converts px to viewport units (vw).",
+  "name": "postcss-pixel-to-vw",
+  "description": "A CSS post-processor that converts px to vw units.",
   "engines": {
     "node": ">=6.0.0"
   },
@@ -9,10 +9,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:meltifa/postcss-pixel-to-viewport.git"
+    "url": "git@github.com:meltifa/postcss-pixel-to-vw.git"
   },
-  "bugs": "https://github.com/meltifa/postcss-pixel-to-viewport/issues",
-  "homepage": "https://github.com/meltifa/postcss-pixel-to-viewport",
+  "bugs": "https://github.com/meltifa/postcss-pixel-to-vw/issues",
+  "homepage": "https://github.com/meltifa/postcss-pixel-to-vw",
   "main": "index.js",
   "keywords": [
     "css",
@@ -21,9 +21,6 @@
     "px",
     "viewport",
     "vw",
-    "vh",
-    "vmin",
-    "vmax",
     "postcss",
     "postcss-plugin"
   ],
