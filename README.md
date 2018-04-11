@@ -1,10 +1,10 @@
-# postcss-pixel-to-viewport
+# postcss-pixel-to-vw
 
-A plugin for [PostCSS](https://github.com/ai/postcss) that generates viewport units (vw) from pixel units.
+A plugin for [PostCSS](https://github.com/ai/postcss) that generates vw units from pixel units.
 
 ## Usage
 
-If your project involves a fixed width, this script will help to convert pixels into viewport units.
+If your project involves a fixed width, this script will help to convert pixels into vw units.
 
 ### Input/Output
 
@@ -112,7 +112,7 @@ Default:
 ```js
 var gulp = require('gulp');
 var postcss = require('gulp-postcss');
-var px2vw = require('postcss-pixel-to-viewport');
+var px2vw = require('postcss-pixel-to-vw');
 
 gulp.task('css', function () {
   var processors = [
