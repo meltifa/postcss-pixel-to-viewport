@@ -70,7 +70,7 @@ var postcss = require('postcss');
 var px2vw = require('..');
 var css = fs.readFileSync('main.css', 'utf8');
 var options = {
-    propertyBlackList: ['font-size']
+  propertyBlackList: ['font-size']
 };
 var processedCss = postcss(px2vw(options)).process(css).css;
 
@@ -115,15 +115,13 @@ var postcss = require('gulp-postcss');
 var px2vw = require('postcss-pixel-to-viewport');
 
 gulp.task('css', function () {
-
-    var processors = [
-        px2vw({
-            viewportWidth: 750
-        })
-    ];
-
-    return gulp.src(['build/css/**/*.css'])
-        .pipe(postcss(processors))
-        .pipe(gulp.dest('build/css'));
+  var processors = [
+    px2vw({
+      viewportWidth: 750
+    })
+  ];
+  return gulp.src(['build/css/**/*.css'])
+    .pipe(postcss(processors))
+    .pipe(gulp.dest('build/css'));
 });
 ```
