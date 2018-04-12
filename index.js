@@ -10,25 +10,28 @@ const pxRegex = /"[^"]+"|'[^']+'|url\([^\)]+\)|(\d*\.?\d+)px/ig;
 
 const defaults = {
   viewportWidth: 750,
+  viewportUnit: 'vmin',
   propertyBlackList: [],
   minPixelValue: 2,
+  enableConvertComment: 'on',
+  disableConvertComment: 'off',
   mediaQuery: false
 };
 
-module.exports = postcss.plugin('postcss-pixel-to-vw', function (options) {
+module.exports = postcss.plugin('postcss-pixel-to-viewport', function (options) {
   const opts = Object.assign({}, defaults, options);
-  const pxReplace = createPxReplace(opts.viewportWidth, opts.minPixelValue);
+  const pxReplace = createPxReplace(opts.viewportWidth, opts.minPixelValue, opts.viewportUnit);
 
   return function (css) {
     css.walkDecls(function (decl, i) {
       const next = decl.next();
       const commentText = next && next.type == 'comment' && next.text;
-      if (decl.value.indexOf('px') === -1 || commentText === 'px') {
-        commentText === 'px' && next.remove();
+      if (decl.value.indexOf('px') === -1 || commentText === opts.disableConvertComment) {
+        commentText === opts.disableConvertComment && next.remove();
         return;
       }
-      if (commentText === 'vw' || !blacklistedProperty(opts.propertyBlackList, decl.prop)) {
-        commentText === 'vw' && next.remove();
+      if (commentText === opts.enableConvertComment || !blacklistedProperty(opts.propertyBlackList, decl.prop)) {
+        commentText === opts.enableConvertComment && next.remove();
         decl.value = decl.value.replace(pxRegex, pxReplace);
       }
     });
@@ -43,12 +46,12 @@ module.exports = postcss.plugin('postcss-pixel-to-vw', function (options) {
   };
 });
 
-function createPxReplace(viewportSize, minPixelValue) {
+function createPxReplace(viewportSize, minPixelValue, viewportUnit) {
   return function (m, $1) {
     if (!$1) return m;
     const pixels = parseFloat($1);
     if (pixels <= minPixelValue) return m;
-    return parseFloat((pixels / viewportSize * 100).toFixed(5)) + 'vw';
+    return parseFloat((pixels / viewportSize * 100).toFixed(5)) + viewportUnit;
   };
 }
 

@@ -1,20 +1,22 @@
 .class {
-  margin: -1.33333vw .5vh;
-  padding: 5vmin 1.26667vw 1px;
-  border: 0.4vw solid black;
+  margin: -1.33333vmin .5vh;
+  padding: 5vmin 1.26667vmin 1px;
+  border: 0.4vmin solid black;
   border-bottom-width: 1px;
-  font-size: 1.86667vw;
+  font-size: 1.86667vmin;
   line-height: 20px;
 }
+
 .class2 {
   border: 1px solid black;
   margin-bottom: 1px;
   font-size: 20px;
-  line-height: 4vw;
+  line-height: 4vmin;
 }
+
 @media (min-width: 750px) {
   .class3 {
     font-size: 16px;
-    line-height: 2.93333vw;
+    line-height: 2.93333vmin;
   }
 }
