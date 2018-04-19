@@ -11,7 +11,7 @@ const pxRegex = /"[^"]+"|'[^']+'|url\([^\)]+\)|(\d*\.?\d+)px/ig;
 const defaults = {
   viewportWidth: 750,
   viewportUnit: 'vmin',
-  propertyBlackList: [],
+  propertyBlacklist: [],
   minPixelValue: 2,
   enableConvertComment: 'on',
   disableConvertComment: 'off',
@@ -30,7 +30,7 @@ module.exports = postcss.plugin('postcss-pixel-to-viewport', function (options) 
         commentText === opts.disableConvertComment && next.remove();
         return;
       }
-      if (commentText === opts.enableConvertComment || !blacklistedProperty(opts.propertyBlackList, decl.prop)) {
+      if (commentText === opts.enableConvertComment || !blacklistedProperty(opts.propertyBlacklist, decl.prop)) {
         commentText === opts.enableConvertComment && next.remove();
         decl.value = decl.value.replace(pxRegex, pxReplace);
       }
