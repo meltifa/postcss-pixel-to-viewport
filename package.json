@@ -7,7 +7,7 @@
   "scripts": {
     "test": "node example"
   },
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "meltifa <meltifa@gmail.com>",
   "license": "MIT",
   "repository": {
